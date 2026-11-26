@@ -17,14 +17,15 @@ if st.button("Predict Survival"):
 
     sex_value = 1 if sex == "Male" else 0
 
-        data = pd.DataFrame(
-                [[pclass, sex_value, age, fare]],
-                        columns=['pclass', 'sex', 'age', 'fare']
-                            )
+    data = pd.DataFrame(
+        [[pclass, sex_value, age, fare]],
+        columns=['pclass', 'sex', 'age', 'fare']
+    )
 
-                                prediction = model.predict(data)
+    prediction = model.predict(data)
 
-                                    if prediction[0] == 1:
-                                            st.success("Passenger Survived!")
-                                                else:
-                                                        st.error("Passenger Did Not Survive")
+    if prediction[0] == 1:
+        st.success("Passenger Survived!")
+    else:
+        st.error("Passenger Did Not Survive")
+        
